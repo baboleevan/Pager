@@ -1,0 +1,17 @@
+- extends 'admin/default.jade'
+
+block layout
+  .navbar
+    .navbar-inner
+      a.brand(href=url_for('.index')) Second Floor
+      ul.nav
+        for description, url, current in menu_director
+          li(class=current and 'active' or '')
+            a(href=url)= description
+  .container
+    - with flashes = get_flashed_messages(with_categories=true)
+      .row
+        .span12
+          - for ct, m in flashes
+            .alert(class="alert-#{ct}")= m
+    block content

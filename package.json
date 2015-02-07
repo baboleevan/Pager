@@ -1,0 +1,9 @@
+{
+	"name": "pager"
+	, "version": "0.0.1"
+	, "dependencies": {
+		"stylus" : "*"
+		, "iced-coffee-script": "*"
+		, "uglify-js": "*"
+	}
+}

@@ -1,0 +1,167 @@
+.front_door
+  width 100%
+  height 100%
+  background-color #111
+  font-family "Droid Sans"
+  color #fff
+  img
+    border 0
+  a
+    text-decoration none
+    color #fff
+    &:hover, &:active, &:visited
+      color #fff
+  .clear_both
+    margin 0
+    padding 0
+    clear both
+
+  @media screen and (min-width: 1024px)
+    .mobile_wrapper
+      display none
+    .inner_wrapper
+      display block
+      position relative
+      width 100%
+      height 100%
+      background-image url('../img/landing_page/background.png')
+      background-position center
+      background-repeat no-repeat
+      background-size cover
+      .left_icon, .right_lang_changer
+        margin-top 0
+        display inline-block
+      .left_icon
+        margin 20px
+      .right_lang_changer
+        float right
+        color #fff
+        margin 20px
+        a
+          margin-right 5px
+          &.active
+            border-bottom 2px solid white
+          &:last-child
+            margin-right 0
+        p
+          float right
+        .fb-like
+          margin-top 20px
+      .main_contents
+        height 675px
+        position absolute
+        left 50%
+        margin-left -361px
+        bottom 0
+        .iphone_section, .right_info_section
+          display inline-block
+        .iphone_section
+          margin-top 0
+          margin-left 0
+          width 433px
+          height 675px
+          margin-right 40px
+        .right_info_section
+          width 248px
+          vertical-align top
+          .first_clear, .core_of_service, .second_clear, .device_img, .about_pager_description, .third_clear
+            width 248px
+          .first_clear
+            height 106px
+          .second_clear
+            height 35px
+          .third_clear
+            height 10px
+          .forth_clear
+            height 10px
+          .support_links
+            height 30px
+            .section1
+              height 20px
+              margin-bottom -3px
+            .section2, .section3, .section4, .section5
+              height 25px
+              overflow hidden
+            img, a
+              display inline-block
+          .about_pager_description
+            font-size 18px
+            line-height 20px
+          .core_of_service
+            font-size 40px
+            font-weight bold
+            line-height 60px
+          .start_wrapper
+            width 248px
+            .start_button
+              width 248px
+              height 76px
+              overflow hidden
+              background-image url('../img/landing_page/start_non.png')
+            &:hover
+              .start_button
+                background-image url('../img/landing_page/start_hover.png')
+  @media screen and (max-width: 1023px)
+    .inner_wrapper
+      display none
+    .mobile_wrapper
+      display block
+      width 100%
+      height 100%
+      background-image url('../img/landing_page/background.png')
+      background-position center
+      background-repeat no-repeat
+      background-size cover
+      .top_white
+        position absolute
+        top 0
+        height 200px
+        background-color #fff
+        width 100%
+        text-align center
+        .top_contents
+          width 160px
+          margin 30px auto
+          .description_over_logo
+            text-align center
+            font-size 9px
+            color #b8b8b8
+            line-height 10px
+            margin-bottom 15px
+          .logo
+            width 131px
+            margin-bottom 20px
+          .mobile_start_wrapper
+            width 160px
+            height 40px
+            .start_button
+              width 160px
+              height 40px
+              overflow hidden
+              background-size 160px 40px
+              background-image url('../img/landing_page/mobile_start_non.png')
+            &:hover
+              .start_button
+                background-image url('../img/landing_page/mobile_start_hover.png')
+      .mid_phone
+        position absolute
+        bottom -3%
+        width 100%
+        img
+          position absolute
+          width 80%
+          left 10%
+          bottom 0
+      .bottom_logos
+        position fixed
+        bottom 0
+        width 100%
+        min-height 100px
+        background-color #464646
+        text-align center
+        a
+          width 110px
+          height 42px
+        img
+          margin-top 20px
+          width 110px

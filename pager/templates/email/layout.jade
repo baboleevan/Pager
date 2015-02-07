@@ -1,0 +1,33 @@
+!!!5
+html(style="height: 100%;")
+  head
+    title=title
+  body(style="height: 100%; margin: 0px")
+    .body(style="font-family: 'Dorid Sans', Sans-serif; color: #464646;")
+      table(style='
+        padding:20px; height: 100%; width: 100%; background-color: #eaeaea;
+        ')
+        tr
+          td(align='center')
+            table(border=0, cellspacing=0, cellpadding=0)
+              tr
+                td(colspan=3)
+                  img(
+                    src=img('email/mail_header.png', true),
+                    style="width: 630px; height: 50px; vertical-align: bottom"
+                  )
+              tr(height=173, style='background-color: white')
+                td(colspan=3, valign='middle', align='center')
+                  img(src=img('email/mail_logo.png', true))
+              tr(style='background-color: white')
+                td(width=30)
+                td(width=570)
+                  block content
+                td(width=30)
+              tr
+                td(colspan=3, align='center')
+                  img(src=img('email/mail_bottom.png', true))
+                  br
+                  a(href="http://www.funnyplan.com/")
+                    img(src=img('email/funnyplan_grey.png', true))
+

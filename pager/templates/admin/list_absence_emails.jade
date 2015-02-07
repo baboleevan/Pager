@@ -1,0 +1,22 @@
+- extends 'admin/layout.jade'
+
+block content
+  .row
+    .span12
+      table.table
+        tr
+          th #
+          th 사용자
+          th 미알림 메시지
+          th 
+        - for user in users
+          tr
+            th= loop.index
+            th #{user.nickname} (#{user.id})
+            th= user.absence_mail_message_logs.count()
+            th
+              form.form-inline(action=url_for('.send_test_absence_email', user_id=user.id), method="post")
+                a.btn(href=url_for('.show_absence_email', user_id=user.id)) 템플릿
+                .input-append
+                  input(type="text", name="test_email", value=test_email, placeholder='테스트 이메일 계정들')
+                  button.btn 테스트

@@ -1,0 +1,65 @@
+- extends 'layout.jade'
+
+block body
+  for template in ['intro', 'login', 'signup', 'invitefriends', 'chatroom', 'room', 'notification', 'setting']
+    script(type='text/html', id='template-' + template)
+      - include 'windows/'+template+'.jade'
+  .windows(data-bind="
+    foreach: windows,
+    transitionEnd: windows,
+    css: {transition: windows.transition},
+    style: {
+      width: windows.width() * windows().length + 'px',
+      '-webkit-transform': 'translate3d('+windows.translate()+'px, 0, 0)'
+    }
+  ")
+    .window(
+      data-bind="
+        template: {name: template_name, data: $data},
+        style: {width: $parent.windows.width() + 'px'}
+      "
+    )
+  //ko if: initialized()
+  .alert_section.error.fade-in(style="display: none", data-bind="fade_out: error")
+      .message
+        img(src=img('icon/error_icon.png'), style="width: 20px; height: 18px")
+        b.head Oops!
+        |  Something went wrong. We will fix soon!
+  .alert_section.disconnected(
+    style="display: none", data-bind="visible: !socket.connected()"
+  )
+    .message
+      img(src=img('icon/disconnected_icon.png'), style="width: 25px; height: 18px")
+      b.head Disconnected
+  ///ko
+  div(data-bind='foreach: notifications, visible: notifications', style='display: none')
+    .notification-bar(data-bind='background_color: color, vtab: open')
+      .notification
+        .profile-image.rel
+          .profile-circled
+            img(src='http://profile.ak.fbcdn.net/static-ak/rsrc.php/v2/yo/r/UlIqmHJn-SK.gif')
+            div
+        .note
+          .writer(data-bind='with: user')
+            b(data-bind='text: nickname')
+            |  Said
+          .message(data-bind="text: '&ldquo;' + message + '&rdquo;'")
+  .float_image(
+    style='display: none',
+    data-bind="
+      visible: show_add_to_home_screen() != null,
+      css: {
+        ipad: show_add_to_home_screen() == 'ipad',
+        iphone: show_add_to_home_screen() == 'iphone'
+      },
+      vtab: function () {show_add_to_home_screen(null)}
+    "
+  )
+    img(src=img('icon/close_viewmode.png'))
+block script
+  script
+    require('pager').init(
+      {{{
+        'facebook_id': config.FACEBOOK_ID,
+      }| tojson}}
+    );

@@ -1,0 +1,63 @@
+- extends 'front_door_layout.jade'
+
+block body
+  .front_door
+    // 일반 데스크탑 뷰
+    .inner_wrapper
+      .right_lang_changer
+        p
+          a(href=url_for('.korean_index')) 한글
+          | /
+          a.active(href=url_for('.index')) ENG
+        .fb-like(data-href="http://pager.funnyplan.com", data-send="false", data-layout="button_count", data-width="450", data-show-faces="true", data-font="lucida grande")
+      .left_icon
+        img(src=img('landing_page/icon_pager.png'))
+      .main_contents
+        .iphone_section
+          img(src=img('landing_page/iphone_flatten.png'))
+        .right_info_section
+          .clear_both.first_clear
+          p.core_of_service
+            | NO INSTALL
+            br
+            | NO SIGN-UP
+            br
+            | NO SPAM
+          .clear_both.second_clear
+          img.device_img(src=img('landing_page/icon_devices.png'))
+          p.about_pager_description
+            | PAGER IS THE SIMPLE,
+            br
+            | FLEXIBLE AND UNIVERSAL
+            br
+            | WEB APP MESSENGER
+          .clear_both.third_clear
+          a(href=url_for('.pager')).start_wrapper.open_app
+            .start_button
+          .clear_both.forth_clear
+          .support_links
+            img.section1(src=img('landing_page/support_btn_01.png'))
+            a.section2(href='http://www.chrome.com', target='blank')
+              img(src=img('landing_page/support_btn_02.png'))
+            a.section3(href='https://www.apple.com/safari/', target='blank')
+              img(src=img('landing_page/support_btn_03.png'))
+            img.section4(src=img('landing_page/support_btn_04.png'))
+            img.section5(src=img('landing_page/support_btn_05.png'))
+
+    // 모바일 뷰
+    .mobile_wrapper
+      .mid_phone
+        img(src=img('landing_page/iphone_flatten.png'))
+      .bottom_logos
+        a(href="http://www.funnyplan.com")
+          img(src=img('landing_page/mobile_funnyplan.png'))
+      .top_white
+        .top_contents
+          .description_over_logo
+            p
+              | THE SIMPLE, FLEXIBLE, AND UNIVERSAL
+              br
+              | WEB APP MESSENGER
+          img.logo(src=img('landing_page/mobile_logo.png'))
+          a(href=url_for('.pager')).mobile_start_wrapper.open_app
+            .start_button

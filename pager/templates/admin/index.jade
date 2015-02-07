@@ -1,0 +1,33 @@
+- extends 'admin/layout.jade'
+
+block content
+  .page-header
+  .row
+    .span8
+      table.table.table-striped.table-bordered
+        tr
+          th 일별 이용자 등록 현황
+        tr
+          td.chart-users(style='height: 300px;')
+        tr
+          th 이용자 누적 등록 현황
+        tr
+          td.chart-cumulative-users(style='height: 300px;')
+    .span4
+      table.table.table-bordered.table-vertical
+        tr
+          th(colspan=2)= "{:%m월 %d일 %a}".format(now)
+        tr
+          th.span2 전체 이용자
+          td= total_users[0]
+        tr
+          th 가입
+          td= total_users[1]
+        tr
+          th 미가입
+          td= total_users[2]
+
+block script
+  script(type="text/javascript", src="https://www.google.com/jsapi")
+  script
+    require('2nd_floor/dashboard')(#{users | tojson});

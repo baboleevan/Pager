@@ -1,0 +1,37 @@
+.notification
+  .body_section.window-content-scrolled
+    ul.notice_list_wrapper
+      for i in [1, 1, 1, 1, 1]
+        li.notice_list_element.yellow
+          .element_wrapper
+            img.user_portrait(src=img('profile_grey.png'))
+            .text_wrapper
+              p.name
+                b Somebody who
+                | said
+              p.contents
+                | "blah blah blah blah blah ..."
+      li.notice_alarm_element
+        .element_wrapper
+          img.notice_alarm_icon(src=img('icon/notice_icon.png'))
+          .text_wrapper
+            p.name
+              b Notice:
+            p.contents
+              | "Test Test Test Test Test..."
+  .navi_bar
+    .for_background_color
+    .contents
+      .left_button(data-bind='vtab: close')
+        img(src=img('icon/header_back_icon.png'))
+      .center_page_name
+        p Notification
+  .bottom_of_notice
+    .setting_line
+      .wrapper
+        p Settings
+    .about_user_line
+      .wrapper
+        img.user_portrait(src=img('profile_grey.png'))
+        p.user_info Myname Me 
+        img.setting_button(src=img('icon/setting_icon.png'))

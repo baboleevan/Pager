@@ -1,0 +1,19 @@
+{
+    "app": {
+        "launch": {
+            "web_url": "http://pager.funnyplan.com/"
+        },
+        "urls": [
+            "http://pager.funnyplan.com/",
+            "http://*.pager.funnyplan.com/"
+        ]
+    },
+    "icons": {
+        "128": "icon_128.png"
+    }, 
+    "name": "Pager by Funnyplan (페이저 메신저)",
+    "short_name": "Pager",
+    "description": "PAGER IS THE SIMPLE, FLEXIBLE AND UNIVERSAL WEB APP MESSENGER. 페이저는 언제 어디서나, 어떤 디바이스에서도 즐길 수 있는 HTML5 웹앱 메신저입니다. (그룹 채팅 지원)",
+    "manifest_version": 2,
+    "version": "0.0.6"
+}

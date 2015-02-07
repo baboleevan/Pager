@@ -1,0 +1,21 @@
+- extends 'admin/default.jade'
+
+block layout
+  .container
+    .row(style='position: absolute; top: 50%; margin-top: -50px')
+      .span8.offset2
+        for errors in form.errors.values()
+          for error in errors
+            .alert.alert-error= error
+        form.form-inline(action=url_for('.login'), method='post')
+          = form.id(placeholder='아이디', class='focused')
+          | 
+          = form.password(placeholder='비밀번호')
+          | 
+          button.btn(type='submit') 로그인
+          = form.redirect()
+          = form.csrf_token()
+
+block script
+  script
+    require('2nd_floor/adminfy')();

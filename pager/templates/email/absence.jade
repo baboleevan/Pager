@@ -1,0 +1,50 @@
+- extends 'email/layout.jade'
+block content
+  table(width='100%')
+    tr
+      td
+        b= title
+        br
+        br
+    tr
+      td
+        for chat_room_id in chat_rooms
+          div(style='border: 1px solid #b8b8b8; min-height: 80px; width: 100%; border-radius: 5px;')
+            for message in chat_rooms[chat_room_id]
+              table(style="margin: 10px; width: 100%")
+                tr
+                  td(style="vertical-align: top;")
+                      img(
+                        src=message.user.profile_image_url
+                        style='
+                          width: 60px; height: 60px; vertical-align: top;
+                          margin-right: 5px; border-radius: 30px;
+                        '
+                      )
+                  td
+                    table(
+                      style='
+                        width: 460px; min-height: 60px;
+                        background-color: #{message.css_color};
+                        padding: 4px; border-radius: 5px;
+                      '
+                    )
+                      tr
+                        td(style="font-size: 14px")= message.user.nickname
+                          |  said
+                        td(rowspan=3, style='width: 45px')
+                          a(href="{}#/rooms/{}".format(url_for('pager', _external=true), chat_room_id), style="color: initial; text-decoration: none")
+                            img(src=img('email/circled_right_arrow.png', true))
+                      tr
+                        td(
+                          style='
+                            padding: 0px 10px; margin: 0; font-size: 18px
+                          '
+                        )
+                          div(style="word-wrap:break-word; width: 380px")
+                            b "#{message.message}"
+                      tr
+                        td(style='text-align: right; font-size: 10px; color: rgb(193, 193, 196)')= message.created.strftime('%Y-%m-%d %H:%M:%S')
+
+          if not loop.last
+            br

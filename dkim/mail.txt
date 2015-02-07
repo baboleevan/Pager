@@ -1,0 +1,1 @@
+mail._domainkey.pager.funnyplan.com IN TXT "v=DKIM1; k=rsa; t=y; p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCzLyTxU8Hj0gC1PiDps6mm8BqpsjqoRbUYEl3rweLgAKFxqNgDFLzLZcjvBa57fUfguhHRuNjg0mqFCuLFtSWsR4F+3KkB5krcCj707jLZPpcPTRRcHoKD2ZZpFGz5nlOuhkZRNJKnOPORuC8Y5D1WqzCBFON3vVA577JPx95FmQIDAQAB" ; ----- DKIM key mail for pager.funnyplan.com

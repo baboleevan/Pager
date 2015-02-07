@@ -1,0 +1,13 @@
+!!! 5
+html
+  head
+    title pager
+    - assets 'admin_css'
+      link(rel='stylesheet', type='text/css', href=ASSET_URL)
+    - endassets
+  body
+    block layout
+    - assets 'admin_js'
+      script(type='text/javascript', src=ASSET_URL)
+    - endassets
+    block script

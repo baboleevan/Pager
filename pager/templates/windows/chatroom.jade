@@ -1,0 +1,74 @@
+.chatroom
+  .body_section(data-bind='scrollFix: {}, scrollTo: rooms.scrollTo')
+    ul.chatroom_list_wrapper.window-content-scrolled
+      li.invite_friends_button.push(
+        data-bind="vtab: function(){location.href = '#/invite_friends'}, push_down: {}"
+      )
+        p.button_info
+          img(src=img('icon/invite_icon.png'))
+          | Invite friends
+      //ko ifnot: rooms()
+      .color_line
+        .scroller.active
+          .no_1
+          .no_1
+      ///ko
+      //ko foreach: rooms
+      li.chatroom_list_elements.grey.element.push(
+        data-bind='vtab: $parent.enter'
+      )
+        .back_for_closing_icon
+          img.push(
+            src=img('delete_bigX.png'),
+            data-bind="vtab: $parent.leave, push_down: {}"
+          )
+        .room_wrapper(
+          data-bind="
+            vevent: {vswipehorizon: open_room_panel},
+          "
+        )
+          .shadow_left_of_wrapper
+            img(src=img('delete_shadow.png'))
+          .make_an_arrow(
+            data-bind="
+              style: {'background-color': message().color.to_color().cssa()}
+            "
+          )
+          .left_section(
+            data-bind="
+              with: message,
+              style: {'background-color': message().color.to_color().css()}
+            "
+          )
+            .top
+              .text_section
+                p(data-bind='text: message')
+              .time_checker
+                p(data-bind='text: created_from_now')
+            .bottom(
+              data-bind="
+                style: {
+                  'background-color': color.to_color().cssa()
+                }
+              "
+            )
+              p.user_name
+                img(src=img('icon/said_icon.png'))
+                span(data-bind='text: user.nickname')
+          .right_section
+            //ko foreach: users
+            .user_thumbnail
+              img.thumbnail(data-bind='attr: {src: profile_image}')
+              img.border(src=img('icon/status_online_6px.png'))
+            ///ko
+        .shadow_right_of_wrapper(style='display: none')
+          img(src=img('delete_shadow.png'))
+      ///ko
+  .navi_bar
+    .for_background_color
+    .contents(data-bind='vtab: scroll_to_top')
+      .center_logo
+        img.logo(src=img('logo_wite.png'))
+      //activity form을 설정하기 전까지 보이지 않도록 고정
+        .right_button
+          img(src=img('icon/header_icon_activity.png'))

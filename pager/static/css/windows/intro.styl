@@ -1,0 +1,58 @@
+@keyframes intro-indicator
+  from
+    -webkit-transform translate3d(0, 0, 0)
+  to
+    -webkit-transform translate3d(-50%, 0, 0)
+
+.intro
+  background-color #b8b8b8 
+  width 100%
+  height 100%
+  position relative
+  .wrapper_for_sorting  
+    position absolute
+    width 320px
+    height 480px
+    top 50%
+    left 50%
+    margin-top -(480/2)px
+    margin-left -(320/2)px
+    .headline
+      text-align center
+      margin-top 113px
+      margin-left 20px
+      img
+        width (362 / 2)px
+        height (136 / 2)px
+    .color_line
+      margin 70px auto 134px
+      width 162px
+      height 8px
+      overflow hidden
+      .scroller
+        width 162*2px
+        .no_1
+          width 162px
+          height 6.5px
+          float left
+          background -webkit-linear-gradient(
+            left,
+            #f9ef7c 0%,
+            #f2a6a6 20%,
+            #cfa9d8 40%,
+            #63dbf0 60%,
+            #a9d97e 80%,
+            #f9ef7c 100%
+          )
+        &.active
+          -webkit-animation intro-indicator 300ms infinite linear
+    .footer
+      color #677578
+      font-size 12px
+      text-align center
+      .funnyplan_logo
+        width 70px
+        margin-bottom 5px
+      p
+        font-size 10px
+        color #e1e1e1

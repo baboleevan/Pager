@@ -1,0 +1,341 @@
+.room
+  width 100%
+  height 100%
+  background-color #464646
+  position relative
+  // 효과 주기 위한 수치값들 여기서 조정 --------------
+  input_wrapper_height = 130
+  square_ledge = (15 * ( 2 ** 0.5 ))/2
+  gap_between_sqaures = (15 - square_ledge)/2 - 0.7
+  //---------------------------------------------------
+  .squares
+    width 302px
+    height 12px
+    background-size 300px 12px
+    &.top
+      background-image url('../img/teared_top.png')
+    &.bottom
+      margin-top 20px
+      background-image url('../img/teared_bottom.png')
+  .about_user_info
+    li
+      margin 5px
+    &.left_ver, &.right_ver
+      .info
+        vertical-align top
+      .name
+        color #464646
+        font-size 12px
+      .time
+        img
+          width 8px
+          margin-right 5px
+        color #b8b8b8
+        font-size 10px
+      .portrait
+        img
+          width 25px
+          border-radius 20px
+    &.left_ver
+      margin-left 25px
+      float left
+      li
+        float right
+      .info
+        text-align left
+    &.right_ver
+      float right
+      margin-right 25px
+      float right
+      li
+        float left
+      .info
+        text-align right
+  //인쇄구 부분
+  .for_output_whole
+    position absolute
+    width 315px
+    height 15px
+    top 106.5px
+    left 50%
+    margin-left -157.5px
+    .left_round, .right_round, .center_bar
+      display inline-block
+      margin-right -6px
+    .center_bar
+      width 302px
+      height 15px 
+      background-color #000
+      .for_line
+        height 1px
+        width 300px
+        background-color #464646
+        border 1px solid #464646
+        margin-top 6px
+    .left_round, .right_round
+      background-color #000
+      width 7.5px
+      height 15px
+    .left_round
+      border-top-left-radius 10px
+      border-bottom-left-radius 10px
+    .right_round
+      border-top-right-radius 10px
+      border-bottom-right-radius 10px
+  //인쇄구 쪽 말림효과 그림자
+  .shadow_over_for_curling
+    width 302px
+    height 15px
+    top 114px
+    left 50%
+    margin-left -151px
+    position absolute
+    background-repeat repeat-x
+    background-size 1px 15px
+    background-image url('../img/message_shadow.png')
+  //작성 부분.
+  .write_section_on_top
+    margin 51.5px auto
+    width 300px
+    height 40px
+    .left_write_section, .right_button
+      display inline-block
+    .right_button
+      width 40px
+      height 40px
+      cursor pointer
+      background-image url('../img/send_button.png')
+      background-size 40px 40px
+      &.selected
+        background-image url('../img/send_button_push.png')
+    .left_write_section
+      width 258px
+      height 38.5px
+      border 1px solid #000
+      vertical-align top
+      margin-right -6px
+      position relative
+      .gradient, .over_glare
+        width 260px
+        height 40px
+      .gradient
+        position absolute
+        top 0
+        left 0
+        background -webkit-linear-gradient(
+          left, 
+          rgba(0,0,0,0.1) 0%,
+          rgba(0,0,0,0) 50%,
+          rgba(0,0,0,0.1) 100%
+        )
+      .over_glare
+        position absolute
+        top 0
+        left 0
+        background-image url('../img/reflection.png')
+        background-size 1px 19px
+        background-repeat repeat-x
+      input
+        position absolute
+        top 7px
+        left 10px
+        border 0
+        font-size 18px
+        color #464646
+        width 230px
+        height 20px
+        background-color transparent
+        resize none
+        &::-webkit-input-placeholder
+          color #464646
+  .body_section
+    &.window-content-scrolled
+      margin-top -27px
+    .about_user_info
+      &.left_ver, &.right_ver
+        margin-left 0
+        margin-right 0
+    .for_first_shape, .for_last_shape
+      margin 0 auto
+      background-color #fff
+      width 300px
+      height 20px
+    .for_first_shape
+      margin-bottom -1px
+      force-3d()
+      .squares.top
+        display block
+        margin-top -4px
+        -webkit-transform translate3d(-0.7px, -1px, 0)
+    .for_last_shape
+      border-top 1px dashed #b8b8b8
+      margin-bottom 100px
+      .squares.bottom
+        display block
+        -webkit-transform translate3d(-0.6px, -11px, 0)
+    .memo_wrapper
+      float none
+      margin-top -20px
+    .memo
+      background-color #fff
+      width 300px
+      margin 0 auto
+      position relative
+      force-3d()
+    .memo
+      height auto
+      position relative
+      overflow-x hidden
+      overflow-y hidden
+      .back_for_closing_icon
+        width 150px
+        height auto
+        background-color #d04f4f
+        img
+          width 25px
+          margin-left 62.5px
+          margin-top 127.5px
+      .one_memo_wrapper
+        width 300px
+        top 0
+        min-height 104px
+        height auto  
+        .shadow_left_of_wrapper
+          position absolute
+          top 0
+          left -10px
+          img
+            width 10px
+            height 100%
+        .shadow_image
+          width 5px
+          display none
+          position absolute
+          left 300px
+          bottom -1px
+        .contents_wrapper
+          width 270px
+          position relative
+          padding-top 15px
+          padding-bottom 30px
+          margin-left 15px
+          border-top 1px dashed #b8b8b8
+          .text_contents_area
+            width 250px
+            margin-bottom 10px
+            font-size 20px
+            color #464646
+            padding-left 10px
+    .memos
+      .memo
+        .one_memo_wrapper
+          .squares
+            display none
+          p
+            word-wrap break-word
+        &.enable-transition
+          -webkit-transition 1s
+  .navi_bar
+    .for_background_color
+      background-color #464646
+    .selected_friends
+      margin 6px auto
+      width 175px
+      text-align center
+      .elements
+        display inline-block
+        border-radius 15px
+        width 30px
+        height 30px
+        background-image url('../img/invite_more.png')
+        background-size 30px 30px
+        margin 0 6px
+        &:first-child
+          margin-left 0px
+        &:last-child
+          margin-right 0px
+        img
+          width 30px
+          border-radius 15px
+  .view_mode, .write_mode
+    width 100%
+    height 100%
+    position absolute
+    top 0
+    left 0
+    -webkit-transform translate3d(0, 0, 0)
+    background-color rgba(0, 0, 0, 1.0)
+    .close_button
+      img
+        width 23px
+      float right
+      margin-right 10px
+      margin-top 22px
+    .squares
+      &.top
+        background-image url('../img/teared_black_up.png')
+      &.bottom
+        background-image url('../img/teared_black_bottom.png')
+    .view_paper, .write_paper
+      &.green_paper
+        background-color #e5f4d8
+        .arrow
+          background-color #e5f4d8
+      &.yellow_paper
+        background-color #fdfad7
+        .arrow
+          background-color #fdfad7
+      &.red_paper
+        background-color #fbe4e4
+        .arrow
+          background-color #fbe4e4
+      &.blue_paper
+        background-color #d0f4fa
+        .arrow
+          background-color #d0f4fa
+  .view_mode
+    .view_contents_wrapper
+      width 320px
+      margin 60px auto
+      position relative
+      .view_paper
+        position relative
+        margin 0 auto
+        width 300px
+        height 315px
+        margin-bottom 22.5px
+        .arrow
+          width 21px
+          height 21px
+          position absolute
+          bottom -10px
+          -webkit-transform rotate(45deg)
+          &.right_ver
+            right 27px
+          &.left_ver
+            left 27px
+        .top_one
+          display block
+        .contents_wrapper
+          width 260px
+          margin-left 20px
+          margin-right 20px
+          padding-top 16px
+          p
+            height 275px
+            overflow-y scroll
+            font-size 20px
+            color #464646
+            line-height 25px
+      .about_user_info
+        .portrait
+          img
+            width 35px
+        .info
+          margin-top 12px
+          .name
+            color #fff
+
+    .bottom_button
+      .for_background_color
+        background-color #a9d97e

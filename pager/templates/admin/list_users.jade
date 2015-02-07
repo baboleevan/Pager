@@ -1,0 +1,38 @@
+- extends 'admin/layout.jade'
+
+block content
+  .row
+    .pagination.pagination-mini.pagination-centered
+      ul
+        for day in dates
+          li(class=form.date.data==day and 'active' or '')
+            a(href=url_for('.list_users', **form.dict(date=day)))= "{:%m.%d}".format(day)
+  .row
+    table.table.span12
+      tr
+        th #
+        th 별명
+        th email
+        th 등록일
+        th 업데이트
+        th
+          .btn-group
+            for status, text in [(None, '전체'), (1, '등록'), (0, '미등록')]
+              a.btn.btn-mini(
+                href=url_for('.list_users', **form.dict(status=status)),
+                class=status==form.status.data and 'active btn-info' or '',
+              )= text
+      - for user in users
+        tr
+          td= loop.index 
+          td= user.nickname
+          td= user.email or ''
+          th= "{:%Y-%m-%d %H:%M:%S}".format(user.created)
+          th= "{:%Y-%m-%d %H:%M:%S}".format(user.updated)
+          td
+            if not user.registered
+              span.label 미등록
+
+block script
+  script
+    require('2nd_floor/adminfy')();

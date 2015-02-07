@@ -1,0 +1,14 @@
+- extends 'layout.jade'
+
+block script
+  script(type='text/javascript')
+    require('jquery-ext');
+    if(!$.isTouchDevice) {
+      $('.open_app').popupWindow({
+        width: 320, height: 480, top: 0, left: 0, windowName: 'thepager'
+      });
+    }
+    $(function(){
+      require('jquery.facebook');
+      $.facebook({{config.FACEBOOK_ID}});
+    });

@@ -1,0 +1,66 @@
+.invitefriends
+  .body_section.window-content-scrolled(data-bind='scrollFix: {}')
+    .selection_bar
+      .selection_tabbar_backgournd
+      ul.selection_tabbar_contents
+        li.myfriends
+          img(src=img('icon/invite_myfriend_icon.png'))
+        li.facebook
+          p Facebook
+        li.email
+          p e-mail
+    .search_bar
+      input(
+        type='text', placeholder="Enter your friend's name or e-mail address",
+        data-bind="
+          value: keyword, valueUpdate: 'afterkeydown', placeholdIt: {}
+        "
+      )
+      img(src=img('icon/search_icon.png'))
+    ul.friedns_list(data-bind='foreach: filtered_friends')
+      li.friends_elements.push(
+        data-bind="
+          css: {
+            'non-member': !user_id, 'online-member': is_online,
+            selected: $parent.selected.indexOf($data) > -1
+          },
+          vtab: $parent.select, push_down: {}
+        "
+      )
+        .wrapping_inner_elements
+          .thumbnail_wrapper
+            // ko if: profile_image
+            img.thumbnail(data-bind='attr: {src: profile_image}')
+            // /ko
+            // ko ifnot: profile_image
+            img.thumbnail(src=img('profile_grey.png'))
+            // /ko
+            img.thumbnail_border(src=img('icon/status_online_6px.png'))
+          p.name(data-bind='text: nickname')
+          img.checker(src=img('icon/signin_approved.png'))
+    .selected_friends(data-bind='foreach: selected')
+        .selected_elements.push(
+          data-bind="
+            css: {'non-member': !user_id, 'online-member': is_online},
+            vtab: $parent.select, push_down: {}
+          "
+        )
+          .thumbnail_wrapper
+            img.thumbnail(
+              data-bind="
+                attr: {src: profile_image || '%s'}
+              " % (img('profile_grey.png'))
+            )
+            img.thumbnail_border(src=img('icon/status_online_6px.png'))
+  .navi_bar
+    .for_background_color
+    .contents 
+      .left_button.push(data-bind='vtab: back, push_down: {}')
+        img(src=img('icon/header_back_icon.png'))
+      .page_title
+        p Invite Friends
+  .bottom_button(data-bind="css: {available: selected().length > 1}")
+    .for_background_color
+    .contents.push(data-bind='vtab: create_room, push_down: {}')
+      .button_name
+        p DONE

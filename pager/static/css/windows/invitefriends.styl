@@ -1,0 +1,149 @@
+@import _animations
+@import _fix
+
+.navi_bar
+  .contents
+    .page_title
+      font-weight bold
+      margin-left -20px
+      margin-top 12px
+.invitefriends
+  .body_section
+    position relative
+    .selection_bar
+      .selection_tabbar_backgournd
+        height 34px
+        width 100%
+        background-color #b8b8b8
+      .selection_tabbar_contents
+        top 0
+        left 50%
+        margin-left -150px
+        width 300px
+        position absolute
+        color #fff
+        font-size 14px
+        font-weight bold
+        li
+          float left
+          text-align center
+          height 34px
+          &.myfriends, &.facebook, &.email
+            padding-top 10px
+            cursor pointer
+          &.myfriends
+            width 70px
+            img
+              width 14px
+            &.sel
+              background-color #f2a6a6
+          &.facebook, &.email
+            width 115px
+          &.facebook
+            &.sel
+              background-color #84e0f0
+          &.email
+            &.sel
+              background-color #ffc554
+    .search_bar
+      width 300px
+      margin 10px auto
+      height 40px
+      border 1px solid #b8b8b8
+      background-color #fff
+      input, img
+        display inline-block
+      input
+        vertical-align top
+        height 20px
+        margin 10px 0 0 10px
+        font-size 12px
+        color #464646
+        width 240px
+        overflow-x hidden
+      img
+        cursor pointer
+        width 35px
+        margin-top 2px
+        float right
+    .friedns_list
+      margin-top 6px
+      li
+        float none
+      .friends_elements
+        cursor pointer
+        position relative
+        width 100%
+        height 40px
+        .wrapping_inner_elements
+          width 300px
+          margin 0 auto
+          .thumbnail, .name, .checker
+            display inline-block
+          .thumbnail_wrapper
+            width 35px
+            height 35px
+            position relative
+            display inline-block
+            .thumbnail_border
+              width 37px
+              top 1.5px
+              left 1.5px
+              position absolute
+              display none
+            .thumbnail
+              margin 2.5px
+              width 35px
+              height 35px
+              border-radius 35px
+          .name
+            vertical-align top
+            margin 13px 0 13px 5px
+            font-size 14px
+            color #464646
+          .checker
+            width 13px
+            float right
+            margin-top 13px
+            margin-right 10px
+            display none
+        &.online-member
+          .thumbnail_wrapper
+            .thumbnail_border
+              display block
+        &.non-member
+          .wrapping_inner_elements
+            img, p 
+              opacity 0.25
+        &.selected
+          background-color rgba(250, 247, 212, 1.0)
+          .checker
+            display block
+    .selected_friends
+      width 100%
+      height 40px
+      border-top 1px solid #677578
+      background-color #fff
+      text-align center
+      padding-bottom 90px
+      .selected_elements
+        display inline-block
+        height 30px
+        margin 5px
+        .thumbnail_wrapper
+          position relative
+          .thumbnail_border
+            top 0
+            left 0
+            position absolute
+            display none
+        &.non-member
+          opacity 0.25
+        &.online-member
+          .thumbnail_border
+            display block
+        img
+          width 30px
+          height 30px
+          border-radius 30px
+          force-3d()

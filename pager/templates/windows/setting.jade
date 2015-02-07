@@ -1,0 +1,69 @@
+.setting
+  .body_section.window-content-scrolled
+    .portraits_setting
+      .wrapper
+        .profile_image
+        .change_icon
+          img(src=img('icon/profile_edit_button.png'))
+    .input_information
+      .input_name
+        input(type='text', placeholder='Your full name')
+      .input_email
+        input(type='text', placeholder='mymail@mail.com')
+        img(src=img('icon/signin_approved.png'))
+    .font
+      p.section_title Font
+      .font_choice_wrapper
+        .font_element.non-border.selected
+          p ABC 가나다 123
+          .checker
+            img(src=img('icon/signin_approved.png'))
+        .font_element
+          p ABC 가나다 123
+          .checker
+            img(src=img('icon/signin_approved.png'))
+        .font_element
+          p ABC 가나다 123
+          .checker
+            img(src=img('icon/signin_approved.png'))
+    .text_to_speech
+      img.icon(src=img('icon/tts_icon.png'))
+      p.description Text To Speech
+      .switcher_button
+        p.on On
+        p.off Off
+        .button
+    .notification_in_setting
+      .section_title Notification
+      .notification_wrapper
+        .facebook_area
+          img.icon(src=img('icon/facebook_icon_setting.png'))
+          p.description Facebook
+          .switcher_button
+            p.on On
+            p.off Off
+            .button
+        .email_area
+          img.icon(src=img('icon/facebook_icon_setting.png'))
+          p.description e-mail
+          .switcher_button
+            p.on On
+            p.off Off
+            .button
+    .talk_with_pager
+      img(src=img('icon/talk_with_pager.png'))
+      .text_wrapper_for_center
+        p Talk with Pager
+    .about
+      p About
+    .logout
+      p
+        | Log out
+        img(src=img('icon/logout.png'))
+  .navi_bar
+    .for_background_color
+    .contents
+      .left_button(data-bind='vtab: close')
+        img(src=img('icon/header_back_icon.png'))
+      .page_title
+        p Settings

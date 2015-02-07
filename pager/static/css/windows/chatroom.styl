@@ -1,0 +1,198 @@
+.chatroom
+  .body_section
+    .color_line
+      margin 70px auto 134px
+      width 162px
+      height 8px
+      overflow hidden
+      .scroller
+        width 162*2px
+        .no_1
+          width 162px
+          height 6.5px
+          float left
+          background -webkit-linear-gradient(
+            left,
+            #f9ef7c 0%,
+            #f2a6a6 20%,
+            #cfa9d8 40%,
+            #63dbf0 60%,
+            #a9d97e 80%,
+            #f9ef7c 100%
+          )
+        &.active
+          -webkit-animation intro-indicator 300ms infinite linear
+    .chatroom_list_wrapper
+      width 320px
+      margin-left auto
+      margin-right auto
+      .invite_friends_button, .chatroom_list_elements
+        margin-left 10px
+      .invite_friends_button
+        width 300px
+        height 40px
+        cursor pointer
+        border-radius 10px
+        border 1.5px dashed #b8b8b8
+        background-color #fff
+        margin-bottom 10px
+        text-align center
+        .button_info
+          margin-top 10px
+          color #b8b8b8
+          font-size 20px
+          img
+            vertical-align top
+            width 15px
+            margin-right 10px
+            margin-top 3px
+      li:first-child
+        margin-top 60px
+      .chatroom_list_elements
+        cursor pointer
+        overflow hidden
+        border-radius 5px
+        border 1px solid #b8b8b8
+        position relative
+        width 300px
+        height 150px
+        margin-top 15px
+        .shadow_right_of_wrapper, .shadow_left_of_wrapper
+          width 10px
+          top 0
+          position absolute
+        .shadow_right_of_wrapper
+          right 0
+        &.green
+          .room_wrapper
+            .left_section, .make_an_arrow
+              background-color #e5f4d8
+              .bottom
+                background-color #a9d97e
+        &.yellow
+          .room_wrapper
+            .left_section, .make_an_arrow
+              background-color #fdfad7
+              .bottom
+                background-color rgba(249, 239, 124, 1.0)
+        &.red
+          .room_wrapper
+            .left_section, .make_an_arrow
+              background-color #fbe4e4
+              .bottom
+                background-color rgba(242, 166, 166, 1.0)
+        &.blue
+          .room_wrapper
+            .left_section, .make_an_arrow
+              background-color #d0f4fa
+              .bottom
+                background-color rgba(99, 219, 240, 1.0)
+        &.grey
+          .room_wrapper
+            .left_section, .make_an_arrow
+              background-color #eaeaea
+              .bottom
+                background-color #b8b8b8
+        .back_for_closing_icon, .room_wrapper
+          border-radius 5px
+        .back_for_closing_icon
+          width 300px
+          height 150px
+          background-color #d04f4f
+          img
+            width 80px
+            margin 35px
+        .room_wrapper
+          position absolute
+          top 0
+          left 0
+          background-color #fff
+          width 300px
+          height 150px
+          .shadow_left_of_wrapper
+            left -18px
+          .left_section, .right_section
+            display inline-block
+          .left_section
+            border-top-left-radius 5px
+            border-bottom-left-radius 5px
+            position relative
+            width 215px
+            height 150px
+            .top
+              width 215px
+              height 150px
+              .text_section, .time_checker
+                width 190px
+              .text_section
+                overflow hidden
+                line-height 18px
+                font-size 15px
+                color #464646
+                margin 15px 10px 10px 15px
+                height 85px
+              .time_checker
+                text-align right
+                margin 0 5px 5px 10px
+                height 12px
+                font-weight bold
+                color #494949
+                font-size 10px
+            .bottom
+              position absolute
+              top 125px
+              left 0
+              width 215px
+              height 25px
+              border-bottom-left-radius 5px
+              .user_name
+                text-align right
+                color #464646
+                font-size 14px
+                vertical-align top
+                margin-top 5px
+                margin-right 10px
+                span
+                  vertical-align top
+                img
+                  width 15px
+                  margin-right 5px
+          .right_section
+            overflow hidden
+            margin-left 2px
+            vertical-align top
+            width 75px
+            height 150px
+            .user_thumbnail
+              width 30px
+              height 30px
+              margin 5px 0 0 6px
+              border-radius 30px
+              position relative
+              &:nth-child(even)
+                margin-left 2px
+              display inline-block
+              .border
+                width 33px
+                top -2px
+                left -2px
+                position absolute
+                display none
+              .thumbnail
+                width 30px
+                border-radius 30px
+              &.online-member
+                .border
+                  display block
+          .make_an_arrow
+            position absolute
+            width 20px
+            height 20px
+            top 10px
+            left 202px
+            -webkit-transform rotate(45deg)
+          &.open-pannel
+            -webkit-transform translate3d(140px, 0, 0)
+          force-3d()
+          -webkit-transition 300ms
+

@@ -1,0 +1,261 @@
+@import fonts
+@import normalize
+@import _fix
+
+html
+  height 100%
+  width 100%
+  
+body
+  height 100%
+  width 100%
+  font-size 20px
+  font-family 'Droid Sans', sans-serif
+  background-color #fdfdfd
+  overflow hidden
+  &.initial
+    background-color black
+  .alert_section
+    position absolute
+    top 0
+    width 100%
+    height 44px
+    background-color rgba(#b50b0b, 0.9)
+    font-size 11px
+    .message 
+      color #fff
+      text-align center
+      margin 1em 0
+      img
+        vertical-align middle
+        margin 0 5px 0 0 
+      .head
+        font-size 12px
+        font-weight bold
+    &.fade-in
+      opacity 1
+    &.fade-out
+      -webkit-transition 3s
+      opacity 0
+
+input
+  border 0
+  background-color transparent
+
+input[type=text]:focus
+  outline none
+
+.windows
+  height 100%
+  width 100%
+  &.transition
+    -webkit-transition 300ms -webkit-transform ease-in-out
+  overflow hidden
+  
+.window
+  height 100%
+  width 100%
+  position relative
+  float left
+  & > div
+    width 100%
+    height 100%
+    overflow hidden
+    position relative
+    -webkit-transform translate3d(0, 0, 0)
+    .window-content-scrolled
+      // make room for navigation menu
+      margin-top 44px
+  textarea
+    resize none
+.navi_bar, .bottom_button
+  text-align center
+  margin-left 0
+  width 100%
+  height 44px
+  .for_background_color
+    width 100%
+    height 44px
+    opacity 0.9
+  -webkit-transform translate3d(0, 0, 0)
+  .left_button, .right_button, .page_title, .button_name
+    img
+      margin-top 12px
+    display inline-block
+  .page_title, .button_name
+    font-size 20px
+    color #fff
+.navi_bar
+  position absolute 
+  top 0px
+  left 0px
+  width 100%
+  .for_background_color
+    background-color #333
+  .contents
+    position absolute
+    width 100%
+    height 44px
+    top 0
+    left 0
+    .left_button, .right_button
+      img
+        width 20px
+      width 40px
+      height 44px
+    .left_button
+      cursor pointer
+      float left
+      img
+        float left
+        margin-left 10px
+    .right_button
+      cursor pointer
+      float right
+      img
+        float right
+        margin-right 10px
+    .center_logo
+      display inline-block
+      img
+        width 55px
+      margin 12px auto
+
+.body_section
+  height 100%
+  overflow-x hidden
+  overflow-y scroll
+  -webkit-transform translate3d(0, 0, 0)
+  -webkit-overflow-scrolling touch
+
+.float_image
+  width 257px
+  height 98px
+  position fixed
+  img
+    cursor pointer
+    width 20px
+    float right
+    margin-right 1px
+  background-size 257px 98px
+  &.iphone
+    left 50%
+    margin-left - ( 257 / 2 )px
+    background-image url('../img/homescreen_float.png')
+    bottom 0px
+    img
+      margin-top 1px
+  &.ipad
+    left 30px
+    top 10px
+    background-image url('../img/homescreen_float_iPad.png')
+    img
+      margin-top 15px
+
+.bottom_button
+  cursor pointer
+  position absolute
+  bottom 0
+  &.available
+    .for_background_color
+      background-color #a9d97e
+  .for_background_color
+    background-color #b8b8b8
+    border-top 1px solid #464646
+    border-bottom 1px solid #464646
+  .contents
+    position absolute
+    bottom 0
+    width 100%
+    height 44px
+    .button_name
+      margin-top 12px
+      text-align center
+
+.push
+  force-3d()
+  &.push-down
+    -webkit-transform translate3d(0, 3px, 0)
+
+size(width=100%, height=100%)
+  width width
+  height height
+
+absolute(top=0, left=0)
+  position absolute
+  top top
+  left left
+
+ellipsis()
+  text-overflow ellipsis
+  white-space nowrap
+  overflow hidden
+
+.profile-circled
+  position relative
+  size 30px, 30px
+  div, img
+    absolute
+    size()
+  img
+    border-radius @width
+  div
+    display none
+    background-image url('/static/img/icon/status_online_6px.png')
+  &.on-line
+    div
+      display block
+
+@keyframes notification-bar-open
+  90%
+    -webkit-transform translate3d(0px, 5px, 0px)
+  100%
+    -webkit-transform translate3d(0px, 0px, 0px)
+
+@keyframes notification-bar-close
+  from
+    -webkit-transform translate3d(0px, 5px, 0px)
+
+
+.notification-bar
+  position absolute
+  width 100%
+  height 44px
+  top 0
+  -webkit-transform translate3d(0px, -@height, 0px)
+  -webkit-animation 0.3s notification-bar-open both
+  &.hide
+    -webkit-animation 0.3s notification-bar-close both
+  .notification
+    height 100%
+    width 320px
+    margin 0 auto
+    position relative
+    background-color initial
+    .profile-image
+      absolute 6px, 10px
+    .note
+      width 260px
+      absolute 6px, 50px
+      height 30px
+      font-size 12px
+      .message
+        font-size @font-size + 2
+        width @width
+        ellipsis()
+        margin-top 4px
+
+.prevent-user-select
+  div, p, span, a, button, img
+    -webkit-user-select none
+
+
+@import 'front_door'
+@import 'windows/intro'
+@import 'windows/login'
+@import 'windows/signup'
+@import 'windows/invitefriends'
+@import 'windows/chatroom'
+@import 'windows/room'
+@import 'windows/notification'
+@import 'windows/setting'

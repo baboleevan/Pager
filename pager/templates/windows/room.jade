@@ -1,0 +1,80 @@
+.room
+  form.write_section_on_top.red(
+    data-bind="with: new_note, event: {submit: new_note.submit}"
+  )
+    .left_write_section(data-bind="style: {'background-color': '#' + color().toString(16)}")
+      .gradient
+      .over_glare
+        input.write_section(
+          placeholder='Write', data-bind="
+            value: message, placeholdIt: {}, valueUpdate: 'afterkeydown'
+          "
+        )
+    .right_button.push(data-bind='vtab: submit, push_down: {}')
+  //- 각 영역별로 공간을 주지 않으면 레이아웃이 이상해진다. 
+  .for_output_whole
+    .left_round
+    |  
+    .center_bar
+      .for_line
+    |  
+    .right_round
+    |  
+  .body_section.window-content-scrolled(data-bind='scrollFix: {}, scroll: scroll')
+    .memo_wrapper
+      .for_first_shape
+        .squares.top
+      .memos(data-bind="foreach: notes")
+        .memo(data-bind="force_transition: force_transition, style: {'background-color': '#' + color.toString(16)}")
+          .back_for_closing_icon(style='display: none')
+            img(src=img('delete_bigX.png'))
+          .one_memo_wrapper
+            .shadow_left_of_wrapper
+              img(src=img('delete_shadow.png'))
+            .contents_wrapper
+              .text_contents_area
+                p(data-bind='text: message')
+              ul.about_user_info(data-bind="css: {right_ver: me, left_ver: !me}")
+                li.info
+                  p.name(data-bind="text: user.nickname")
+                  p.time
+                    img(src=img('icon/room_clock.png'))
+                    span(data-bind='text: created_from_now')
+                li.portrait
+                  img(data-bind='attr: {src: user.profile_image}')
+                img.shadow_image(src=img('room_shadow.png'))
+      .for_last_shape
+        .squares.bottom
+  .shadow_over_for_curling
+  .navi_bar
+    .for_background_color
+    .contents(data-bind='vtab: scrollTop')
+      .left_button.push(
+        data-bind='vtab: back, vtabBubble: false, push_down: {}'
+      )
+        img(src=img('icon/header_back_icon.png'))
+      .selected_friends(data-bind="foreach: users")
+        .elements(
+          data-bind='with: $data, vtab: $parent.invite, vtabBubble: false'
+        )
+          img(data-bind="attr: {src: profile_image}")
+  .view_mode(style='display: none')
+    .close_button
+      img(src=img('icon/close_viewmode.png'))
+    .view_contents_wrapper
+      .view_paper.blue_paper
+        .squares.top
+        .contents_wrapper
+          p
+            | <무자식 상팔자>는 가족이 아니라 권력에 관한 이야기이며, 이것의 중심에는 자본이 잇다. 퇴직으로 인해 자본 권력을 잃은 희재와 희명(송승환)에게 호식의 주유소는 외면할 수 없는 권위이며, 이것은 "할아버지가 밥도 먹여주고 카페도 차려 줄 것"이라고 믿는 준기(이도영)를 통해 간접적으로 증명된다.
+            | 이혼을 선언한 금실(서우림)을 통해 제기되는 논쟁연상 ~~~~~~~
+        .arrow.right_ver
+      //about_user_info 부분 오른쪽은 .right_ver 클래스, 왼쪽은 .left_ver 클래스로.
+      ul.about_user_info.right_ver
+        li.info
+          p.name Somebody who
+          p.time
+            img(src=img('icon/room_clock.png'))
+            | 5 sec ago
+        li.portrait
+          img(src=img('profile_grey.png'))
